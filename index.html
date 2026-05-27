@@ -1,0 +1,441 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Inventory Count 37th St</title>
+<style>
+  /* 全局样式 */
+  body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif; background:#f2f2f7; margin:0; padding:16px; font-size: 14px; color: #333; }
+  .container { max-width: 1000px; margin: 0 auto; background: #fff; padding: 20px; box-shadow: 0 4px 12px rgba(0,0,0,0.1); border-radius: 12px; }
+
+  /* 顶部输入区域 - 使用 align-items: stretch 让按钮自动匹配左侧高度 */
+  .top { display:flex; align-items: stretch; gap:10px; flex-wrap: wrap; }
+  .left { flex:1; min-width: 300px; display: flex; flex-direction: column; justify-content: space-between;}
+  
+  .input-row { display: flex; gap: 10px; margin-bottom: 10px; align-items: center; }
+  .input-wrapper { position: relative; flex: 1; }
+  
+  /* 输入框 */
+  input { 
+    width: 100%; box-sizing: border-box; padding: 10px 12px; 
+    font-size: 16px; height: 44px; /* 统一高度 */
+    border: 1px solid #d1d1d6; border-radius: 8px; background: #fff;
+    appearance: none;
+  }
+  input:focus { border-color: #007aff; outline: none; box-shadow: 0 0 0 2px rgba(0,122,255,0.2); }
+  
+  #selectedName { background-color: #f2f2f7; color: #8e8e93; cursor: not-allowed; border-color: #e5e5ea; }
+  #rackInput { background-color: #f9f9ff; border-color: #cfcff0; text-align: center; font-weight: bold; color: #5856d6; }
+  #rackInput:focus { border-color: #5856d6; box-shadow: 0 0 0 2px rgba(88, 86, 214, 0.2); }
+
+  /* 规格显示区域样式 - 继承默认高度，仅改变背景暗示只读 */
+  .spec-input { background-color: #f2f2f7; color: #666; border-color: #e5e5ea; cursor: default; }
+
+  /* 按钮通用 */
+  button { padding: 8px 16px; margin: 0; font-size: 14px; cursor: pointer; border-radius: 8px; border: none; font-weight: 500; }
+  button:active { opacity: 0.7; }
+  
+  /* 层数选择按钮 A/B/C */
+  .level-group { display: flex; gap: 4px; height: 44px; }
+  .level-btn { background: #e5e5ea; color: #8e8e93; font-size: 16px; font-weight: bold; width: 44px; padding: 0; border-radius: 8px; transition: 0.2s; }
+  .level-btn.active { background: #5856d6; color: white; box-shadow: 0 2px 4px rgba(88,86,214,0.3); }
+
+  /* ADD 按钮自动填满右侧高度 */
+  #addRecord { background: #007aff; color: white; width: 100px; font-size: 18px; font-weight: bold; border-radius: 8px; }
+  #exportCSV { background: #34c759; color: white; }
+  #clearAll { background: #ff3b30; color: white; }
+  
+  /* 搜索建议下拉框 */
+  #suggestions { 
+    border: 1px solid #d1d1d6; max-height: 250px; overflow-y: auto; 
+    background: #fff; position: absolute; z-index: 1000; 
+    width: 100%; box-shadow: 0 8px 16px rgba(0,0,0,0.15); border-radius: 8px; margin-top: 4px; 
+    display: none; 
+  }
+  #suggestions.show { display: block; }
+  #suggestions div { padding: 12px 14px; cursor: pointer; border-bottom: 1px solid #f2f2f7; font-size: 16px; }
+  #suggestions div:hover { background: #f2f2f7; }
+
+  /* 过滤器区域 */
+  .filter-area { margin-top: 20px; padding: 10px; background: #f2f2f7; border-radius: 8px; display: flex; align-items: center; gap: 10px; }
+  #tableFilter { height: 36px; font-size: 14px; border: 1px solid #ccc; flex: 1;}
+
+  /* 表格 */
+  table { border-collapse: collapse; width: 100%; margin-top: 10px; font-size: 14px; table-layout: fixed; }
+  th { background: #fff; color: #666; font-weight: 700; padding: 10px; text-align: left; border-bottom: 2px solid #007aff; }
+  td { border-bottom: 1px solid #e5e5ea; padding: 8px; vertical-align: middle; }
+  
+  .smallInput { 
+    width: 100%; border: 1px solid transparent; background: transparent; 
+    height: 36px; font-size: 14px; padding: 0 4px; border-radius: 4px;
+  }
+  .smallInput:focus { background: #fff; border-color: #007aff; }
+
+  .delButton { background: transparent; color: #c7c7cc; font-size: 18px; padding: 4px 8px; }
+  .delButton:hover { color: #ff3b30; background: rgba(255,59,48,0.1); }
+  
+  /* 控制台强制放在两端 (左右对齐) */
+  #controls { 
+    margin-top: 15px; 
+    display: flex; 
+    justify-content: space-between; 
+    align-items: center; 
+    border-top: 1px solid #e5e5ea; 
+    padding-top: 15px; 
+  }
+
+  @media (max-width: 600px) {
+    .top { flex-direction: column; }
+    #addRecord { width: 100%; height: 50px; }
+    .container { padding: 12px; }
+    th, td { padding: 5px; font-size: 13px; }
+    .hide-mobile { display: none; }
+  }
+</style>
+</head>
+<body>
+
+<div class="container">
+  <div class="top">
+    <div class="left">
+      <!-- Row 1: Product Search -->
+      <div class="input-row">
+        <div class="input-wrapper">
+          <input type="text" id="search" placeholder="1. Search Product..." autocomplete="off" />
+          <div id="suggestions"></div>
+        </div>
+        <input type="text" id="selectedName" placeholder="Item Name" readonly style="flex:1;" />
+      </div>
+      
+      <!-- Row 1.5: 规格信息 (一直显示) -->
+      <div class="input-row" id="specRow">
+        <input type="text" id="packSizeInfo" class="spec-input" readonly placeholder="Pack Size" style="flex:1;" />
+        <input type="text" id="palletSizeInfo" class="spec-input" readonly placeholder="Pallet Size" style="flex:1;" />
+      </div>
+      
+      <!-- Row 2: Qty -> Rack Number -> Level(A/B/C) -->
+      <div class="input-row">
+        <input type="text" id="quantityInput" inputmode="decimal" placeholder="2. Qty" style="flex:0.6;" />
+        
+        <input type="text" id="rackInput" inputmode="numeric" placeholder="3. Rack Num (e.g. 12)" style="flex:1;" />
+        
+        <div class="level-group">
+          <button type="button" class="level-btn active" data-level="A">A</button>
+          <button type="button" class="level-btn" data-level="B">B</button>
+          <button type="button" class="level-btn" data-level="C">C</button>
+        </div>
+      </div>
+      
+      <!-- Row 3: Note -->
+       <div class="input-row" style="margin-bottom: 0;">
+        <input type="text" id="noteInput" placeholder="4. Note (optional)" style="flex:1;" />
+      </div>
+    </div>
+    
+    <!-- ADD 按钮和左侧平齐 -->
+    <button id="addRecord" title="Add to list">ADD</button>
+  </div>
+
+  <div id="controls">
+    <button id="exportCSV">⬇ Export CSV</button>
+    <button id="clearAll">⚠ Clear All</button>
+  </div>
+
+  <div class="filter-area">
+    <span style="font-weight:bold; color:#555;">🔍 Find in list:</span>
+    <input type="text" id="tableFilter" placeholder="Type item name OR location (e.g. '12-A')..." />
+    <span id="recordCount" style="color:#888; font-size:12px; white-space: nowrap;">0 items</span>
+  </div>
+
+  <table>
+    <thead>
+      <tr>
+        <th style="width:15%">Code</th>
+        <th style="width:25%">Name</th>
+        <th style="width:12%">Qty</th>
+        <th style="width:18%; color:#5856d6;">Location</th> 
+        <th style="width:20%" class="hide-mobile">Note</th>
+        <th style="width:10%; text-align:center;">Del</th>
+      </tr>
+    </thead>
+    <tbody id="recordTable"></tbody>
+  </table>
+</div>
+
+<script>
+ // 1. 初始化产品数据
+  let products = {};
+  let records = JSON.parse(localStorage.getItem("records") || "[]");
+  let currentSelectedId = null; 
+  let currentLevel = "A";
+
+  // A/B/C 按钮逻辑
+  document.querySelectorAll('.level-btn').forEach(btn => {
+    btn.onclick = () => {
+      document.querySelectorAll('.level-btn').forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+      currentLevel = btn.getAttribute('data-level');
+    };
+  });
+
+  const rackInput = document.getElementById("rackInput");
+  rackInput.addEventListener("input", function() {
+    this.value = this.value.replace(/[^0-9]/g, ''); 
+  });
+
+  // 加载外部 JSON 并自动兼容
+  fetch("products.json")
+    .then(res => { if(res.ok) return res.json(); throw new Error(""); })
+    .then(data => { 
+        let formattedData = {};
+        for (let key in data) {
+            if (typeof data[key] === 'string') {
+                formattedData[key] = { name: data[key], pack: "N/A", pallet: "N/A" };
+            } else {
+                formattedData[key] = data[key];
+            }
+        }
+        products = formattedData; 
+    })
+    .catch(() => console.log("Using demo/offline data"));
+
+  const searchInput = document.getElementById("search");
+  const suggestionsDiv = document.getElementById("suggestions");
+  const selectedNameInput = document.getElementById("selectedName");
+  const quantityInput = document.getElementById("quantityInput");
+  const noteInput = document.getElementById("noteInput");
+  const tableFilter = document.getElementById("tableFilter");
+  
+  const packSizeInfo = document.getElementById("packSizeInfo");
+  const palletSizeInfo = document.getElementById("palletSizeInfo");
+
+  function safeCalculate(expression) {
+      if(!expression) return "";
+      try {
+          const sanitized = String(expression).replace(/[^-()\d/*+.]/g, "");
+          if(!sanitized) return expression;
+          const result = new Function('return ' + sanitized)();
+          return Math.round(result * 100) / 100;
+      } catch (e) { return null; }
+  }
+
+  // 展示规格信息 (增加大小写键名兼容机制)
+  function showSpecs(itemData) {
+      const packVal = itemData.pack || itemData.Pack || itemData['Pack Size'] || itemData.packSize || 'N/A';
+      const palletVal = itemData.pallet || itemData.Pallet || itemData['Pallet Size'] || itemData.palletSize || 'N/A';
+      packSizeInfo.value = `Pack Size: ${packVal}`;
+      palletSizeInfo.value = `Pallet Size: ${palletVal}`;
+  }
+
+  function hideSpecs() {
+      packSizeInfo.value = "";
+      palletSizeInfo.value = "";
+  }
+
+  // 搜索逻辑
+  searchInput.addEventListener("input", () => {
+    const val = searchInput.value.toLowerCase().trim();
+    currentSelectedId = null; 
+    suggestionsDiv.innerHTML = "";
+    if (val === "") { 
+        selectedNameInput.value = ""; 
+        hideSpecs();
+        suggestionsDiv.classList.remove("show"); 
+        return; 
+    }
+
+    const matches = Object.entries(products)
+      .filter(([id, data]) => id.toLowerCase().includes(val) || String(data.name).toLowerCase().includes(val))
+      .slice(0, 10);
+
+    if (matches.length > 0) {
+        suggestionsDiv.classList.add("show");
+        matches.forEach(([id, data]) => {
+            const div = document.createElement("div");
+            div.textContent = `[${id}] ${data.name}`;
+            div.onclick = () => {
+                searchInput.value = id;
+                selectedNameInput.value = data.name;
+                currentSelectedId = id; 
+                showSpecs(data); 
+                suggestionsDiv.innerHTML = "";
+                suggestionsDiv.classList.remove("show");
+                quantityInput.focus(); 
+            };
+            suggestionsDiv.appendChild(div);
+        });
+    } else { suggestionsDiv.classList.remove("show"); }
+  });
+
+  document.addEventListener('click', (e) => {
+    if (!searchInput.contains(e.target) && !suggestionsDiv.contains(e.target)) suggestionsDiv.classList.remove("show");
+  });
+
+  function handleEnter(e) { if (e.key === "Enter") document.getElementById("addRecord").click(); }
+  quantityInput.addEventListener("keyup", handleEnter);
+  noteInput.addEventListener("keyup", handleEnter);
+  rackInput.addEventListener("keyup", handleEnter); 
+  
+  // 搜索框回车支持 (增加大小写无缝匹配机制)
+  searchInput.addEventListener("keyup", (e) => {
+      if(e.key === "Enter") {
+          const val = searchInput.value.trim().toLowerCase();
+          const matchEntry = Object.entries(products).find(([k,v]) => k.toLowerCase() === val);
+          
+          if(matchEntry) { 
+              searchInput.value = matchEntry[0]; // 自动转为正确的 ID 大小写
+              selectedNameInput.value = matchEntry[1].name;
+              currentSelectedId = matchEntry[0];
+              showSpecs(matchEntry[1]); 
+              quantityInput.focus();
+              suggestionsDiv.classList.remove("show");
+          } else {
+              quantityInput.focus();
+          }
+      }
+  });
+
+  // 渲染表格
+  function renderTable() {
+    const tbody = document.getElementById("recordTable");
+    tbody.innerHTML = "";
+    
+    const filterText = tableFilter.value.toLowerCase().trim();
+
+    const filteredRecords = records.filter(r => {
+        if (!filterText) return true;
+        return r.id.toLowerCase().includes(filterText) || 
+               r.name.toLowerCase().includes(filterText) ||
+               (r.location && r.location.toLowerCase().includes(filterText));
+    });
+
+    document.getElementById("recordCount").textContent = `${filteredRecords.length} items visible`;
+
+    for (let i = filteredRecords.length - 1; i >= 0; i--) {
+      const record = filteredRecords[i];
+      const tr = document.createElement("tr");
+
+      const tdId = document.createElement("td"); tdId.textContent = record.id;
+      const tdName = document.createElement("td"); tdName.textContent = record.name;
+      
+      const tdQty = document.createElement("td");
+      const inputQty = document.createElement("input");
+      inputQty.type = "text"; inputQty.setAttribute("inputmode", "decimal");
+      inputQty.value = record.qty; inputQty.className = "smallInput";
+      inputQty.onchange = () => {
+        const cal = safeCalculate(inputQty.value);
+        if (cal !== null) { record.qty = cal; inputQty.value = cal; saveData(); }
+        else { inputQty.value = record.qty; }
+      };
+      tdQty.appendChild(inputQty);
+
+      const tdLoc = document.createElement("td");
+      const inputLoc = document.createElement("input");
+      inputLoc.type = "text"; inputLoc.value = record.location || ""; inputLoc.className = "smallInput";
+      inputLoc.style.color = "#5856d6"; inputLoc.style.fontWeight = "bold";
+      inputLoc.onchange = () => { record.location = inputLoc.value.toUpperCase(); saveData(); renderTable(); };
+      tdLoc.appendChild(inputLoc);
+
+      const tdNote = document.createElement("td");
+      tdNote.className = "hide-mobile";
+      const inputNote = document.createElement("input");
+      inputNote.type = "text"; inputNote.value = record.note || ""; inputNote.className = "smallInput";
+      inputNote.onchange = () => { record.note = inputNote.value; saveData(); };
+      tdNote.appendChild(inputNote);
+
+      const tdAction = document.createElement("td");
+      tdAction.style.textAlign = "center";
+      const delBtn = document.createElement("button");
+      delBtn.innerHTML = "&times;"; delBtn.className = "delButton";
+      delBtn.onclick = () => {
+        if (confirm(`Delete '${record.name}' from list?`)) {
+          const originalIndex = records.indexOf(record);
+          if (originalIndex > -1) { records.splice(originalIndex, 1); saveData(); renderTable(); }
+        }
+      };
+      tdAction.appendChild(delBtn);
+
+      tr.append(tdId, tdName, tdQty, tdLoc, tdNote, tdAction);
+      tbody.appendChild(tr);
+    }
+  }
+
+  tableFilter.addEventListener("input", renderTable);
+  function saveData() { localStorage.setItem("records", JSON.stringify(records)); }
+
+  // 添加记录
+  document.getElementById("addRecord").onclick = () => {
+    const qtyValRaw = quantityInput.value.trim();
+    const noteVal = noteInput.value.trim();
+    const rackVal = rackInput.value.trim(); 
+    
+    if (!currentSelectedId && !searchInput.value) { alert("Select product first."); searchInput.focus(); return; }
+    if (!qtyValRaw) { alert("Enter quantity."); quantityInput.focus(); return; }
+
+    let finalId = currentSelectedId;
+    let finalName = selectedNameInput.value;
+    if (!finalId) {
+        const searchVal = searchInput.value.trim();
+        const match = Object.entries(products).find(([k,v]) => k.toLowerCase()===searchVal.toLowerCase());
+        if(match) { finalId = match[0]; finalName = match[1].name; } 
+        else { alert("Product not found."); return; }
+    }
+
+    const finalQty = safeCalculate(qtyValRaw);
+    if(finalQty === null) return;
+
+    const finalLocation = rackVal ? `${rackVal}-${currentLevel}` : `-${currentLevel}`;
+
+    records.push({ id: finalId, name: finalName, location: finalLocation, qty: finalQty, note: noteVal });
+    saveData();
+    renderTable();
+
+    // 提交后重置，并清空尺寸文字
+    searchInput.value = ""; 
+    selectedNameInput.value = ""; 
+    quantityInput.value = ""; 
+    rackInput.value = ""; 
+    noteInput.value = "";
+    currentSelectedId = null;
+    hideSpecs();
+    
+    currentLevel = "A";
+    document.querySelectorAll('.level-btn').forEach(b => b.classList.remove('active'));
+    document.querySelector('.level-btn[data-level="A"]').classList.add('active');
+
+    searchInput.focus(); 
+  };
+
+  // 导出 CSV
+  document.getElementById("exportCSV").onclick = () => {
+    if(records.length === 0) { alert("No records."); return; }
+    const escapeCsv = (txt) => { const str = String(txt||""); return str.includes(",") ? `"${str}"` : str; };
+    const formatNumber = (num) => Math.round(Number(num) * 100) / 100;
+
+    const rows = [["Code", "Name", "Qty", "Location", "Note"]];
+    records.forEach(r => rows.push([
+        escapeCsv(r.id), 
+        escapeCsv(r.name), 
+        formatNumber(r.qty),
+        escapeCsv(r.location), 
+        escapeCsv(r.note)
+    ]));
+
+    const csvContent = "data:text/csv;charset=utf-8,\uFEFF" + rows.map(e => e.join(",")).join("\n");
+    const link = document.createElement("a");
+    link.href = encodeURI(csvContent);
+    link.download = `Inventory_${new Date().toISOString().slice(0,10)}.csv`;
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
+  };
+
+  document.getElementById("clearAll").onclick = () => {
+    if (confirm("Clear ALL records?")) { records = []; localStorage.removeItem("records"); renderTable(); }
+  };
+
+  renderTable();
+</script>
+</body>
+</html>

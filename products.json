@@ -1,0 +1,717 @@
+{
+  "I10000": {
+    "name": "#N/A",
+    "pack": "No inv",
+    "pallet": "No inv"
+  },
+  "I10005": {
+    "name": "#N/A",
+    "pack": "No inv",
+    "pallet": "No inv"
+  },
+  "I10006": {
+    "name": "80% Unsalted Butter",
+    "pack": "55.115",
+    "pallet": "2204.6"
+  },
+  "I10009": {
+    "name": "Ice",
+    "pack": "20",
+    "pallet": "N/A"
+  },
+  "I10010": {
+    "name": "Neuf Cheese Blend",
+    "pack": "40",
+    "pallet": "2100"
+  },
+  "I10011": {
+    "name": "73157 700170 Cheese Filling Preblend Topping (BIMBO)",
+    "pack": "40.37",
+    "pallet": "2018.5"
+  },
+  "I10012": {
+    "name": "73159 700434 Raspberry Twist Filling Preblend",
+    "pack": "48.54",
+    "pallet": "2427"
+  },
+  "I10013": {
+    "name": "73324 700168 Cheese Twist Filling Preblend",
+    "pack": "42.82",
+    "pallet": "2141"
+  },
+  "I10020": {
+    "name": "Emplex (101009)",
+    "pack": "50",
+    "pallet": "No Whole Pallet"
+  },
+  "I10024": {
+    "name": "Softase 1700",
+    "pack": "50",
+    "pallet": "2000"
+  },
+  "I10027": {
+    "name": "Lemon Juice",
+    "pack": "53.6",
+    "pallet": "No Whole Pallet"
+  },
+  "I10028": {
+    "name": "Juice Orange Concentrate 50359",
+    "pack": "56.3",
+    "pallet": "No Whole Pallet"
+  },
+  "I10058": {
+    "name": "#N/A",
+    "pack": "No inv",
+    "pallet": "N/A"
+  },
+  "I10059": {
+    "name": "Rspb Bimbo Filling - NO HFCS (BIMBO 2024)",
+    "pack": "550",
+    "pallet": "2200"
+  },
+  "I10060": {
+    "name": "Bagged Flour",
+    "pack": "50",
+    "pallet": "2500"
+  },
+  "I10061": {
+    "name": "Whole Wheat (103904)",
+    "pack": "No inv",
+    "pallet": "250"
+  },
+  "I10062": {
+    "name": "Patent Flour",
+    "pack": "Silo",
+    "pallet": "N/A"
+  },
+  "I10063": {
+    "name": "Baker's Soy Flour (105808)",
+    "pack": "50",
+    "pallet": "2500"
+  },
+  "I10064": {
+    "name": "Oat Fiber",
+    "pack": "50",
+    "pallet": "No Whole Pallet"
+  },
+  "I10065": {
+    "name": "Pastry Flour",
+    "pack": "50",
+    "pallet": "2500"
+  },
+  "I10066": {
+    "name": "73152 700165 Danish Twist Dough Preblend",
+    "pack": "36.77",
+    "pallet": "1838.5"
+  },
+  "I10067": {
+    "name": "73311 700167 Dough Gum Preblend",
+    "pack": "40.75",
+    "pallet": "2037.5"
+  },
+  "I10068": {
+    "name": "Soy Fiber",
+    "pack": "No inv",
+    "pallet": "N/A"
+  },
+  "I10069": {
+    "name": "Methyl Cellulose",
+    "pack": "No inv",
+    "pallet": "N/A"
+  },
+  "I10073": {
+    "name": "Cinnamon (103310)",
+    "pack": "50",
+    "pallet": "2000"
+  },
+  "I10074": {
+    "name": "Salt (102960)",
+    "pack": "50",
+    "pallet": "2450"
+  },
+  "I10075": {
+    "name": "Btr Flvr Powdered",
+    "pack": "50",
+    "pallet": "1350"
+  },
+  "I10076": {
+    "name": "50161 118D1281 Art Vanilla Flvr",
+    "pack": "40",
+    "pallet": "No Whole Pallet"
+  },
+  "I10077": {
+    "name": "#N/A",
+    "pack": "No inv",
+    "pallet": "N/A"
+  },
+  "I10078": {
+    "name": "209-0962 Art Btr Flvr",
+    "pack": "40",
+    "pallet": "No Whole Pallet"
+  },
+  "I10079": {
+    "name": "118D1242 Flavor White Lemon Emulsion 50163 (BIMBO)",
+    "pack": "40",
+    "pallet": "No Whole Pallet"
+  },
+  "I10080": {
+    "name": "Yogurt Flavor",
+    "pack": "No inv",
+    "pallet": "N/A"
+  },
+  "I10081": {
+    "name": "Natural Caramel Flavor WONF 12.1022",
+    "pack": "No inv",
+    "pallet": "N/A"
+  },
+  "I10082": {
+    "name": "WS 200-1402 Butter&Vanilla Flvr",
+    "pack": "No inv",
+    "pallet": "N/A"
+  },
+  "I10083": {
+    "name": "Natural Vanilla Flavor WONF WS",
+    "pack": "40",
+    "pallet": "No Whole Pallet"
+  },
+  "I10084": {
+    "name": "Natural Maple French Toast Type Flavor 13789-42223",
+    "pack": "40",
+    "pallet": "No Whole Pallet"
+  },
+  "I10085": {
+    "name": "Beta Carotene 1% CWS 23.7957SD",
+    "pack": "No inv",
+    "pallet": "N/A"
+  },
+  "I10086": {
+    "name": "Extra Grade Buttermilk Powder",
+    "pack": "55.115",
+    "pallet": "No Whole Pallet"
+  },
+  "I10087": {
+    "name": "Sodium Bicarbonate",
+    "pack": "50",
+    "pallet": "No Whole Pallet"
+  },
+  "I10088": {
+    "name": "Praylev PYRO 220 SODIUM ACID PYROPHOSPHAT",
+    "pack": "50",
+    "pallet": "No Whole Pallet"
+  },
+  "I10089": {
+    "name": "Dill Pickle Flavored Seasoning",
+    "pack": "No inv",
+    "pallet": "N/A"
+  },
+  "I10090": {
+    "name": "Natural Cream Cheese Type Flavor Powder Brookside",
+    "pack": "No inv",
+    "pallet": "N/A"
+  },
+  "I10091": {
+    "name": "Cinnamon B Ground 60 (2.0% VO) CK9415",
+    "pack": "50",
+    "pallet": "No Whole Pallet"
+  },
+  "I10092": {
+    "name": "Natural Chocolate Flavor WONF Powder 17.885",
+    "pack": "No inv",
+    "pallet": "N/A"
+  },
+  "I10093": {
+    "name": "Natural Pumpkin Pie Type Flavor OS 109-0600",
+    "pack": "40",
+    "pallet": "No Whole Pallet"
+  },
+  "I10094": {
+    "name": "Pumpkin Pie Spice Blend 91347",
+    "pack": "50",
+    "pallet": "No Whole Pallet"
+  },
+  "I10095": {
+    "name": "Air Dried Pumpkin Powder -40",
+    "pack": "50",
+    "pallet": "No Whole Pallet"
+  },
+  "I10125": {
+    "name": "Sans Trans 50 MB",
+    "pack": "50",
+    "pallet": "2000"
+  },
+  "I10126": {
+    "name": "Bunge NH 600 Biscuit Flake",
+    "pack": "50",
+    "pallet": "No Whole Pallet"
+  },
+  "I10131": {
+    "name": "Bunge 528 Cool",
+    "pack": "50",
+    "pallet": "1800"
+  },
+  "I10133": {
+    "name": "M173 Lamination Fat (BIMBO)- MB",
+    "pack": "44.1",
+    "pallet": "2469.6(56 cs)"
+  },
+  "I10136": {
+    "name": "Non Fat Dry Milk(100805)",
+    "pack": "55.115",
+    "pallet": "2204.6"
+  },
+  "I10138": {
+    "name": "Whey - Sweet Dairy (100792)",
+    "pack": "55.115",
+    "pallet": "2204.6"
+  },
+  "I10139": {
+    "name": "Whole Powder Milk",
+    "pack": "55.115",
+    "pallet": "2204.6"
+  },
+  "I10148": {
+    "name": "Mineral Oil",
+    "pack": "390",
+    "pallet": "1560"
+  },
+  "I10149": {
+    "name": "Crumbled Yeast",
+    "pack": "50",
+    "pallet": "2100"
+  },
+  "I10150": {
+    "name": "029612 Mono & Diglyceride 50% BFP 550",
+    "pack": "50",
+    "pallet": "2000"
+  },
+  "I10151": {
+    "name": "Calcium Proprionate (102840)",
+    "pack": "50",
+    "pallet": "2250"
+  },
+  "I10152": {
+    "name": "Vital Wheat Gluten(103808)",
+    "pack": "50",
+    "pallet": "No Whole Pallet"
+  },
+  "I10158": {
+    "name": "#N/A",
+    "pack": "No inv",
+    "pallet": "N/A"
+  },
+  "I10161": {
+    "name": "Liquid Whole Eggs",
+    "pack": "Newburg30 Specialty40",
+    "pallet": "1800"
+  },
+  "I10166": {
+    "name": "Tro-Lube Plus Low Viscosity",
+    "pack": "390",
+    "pallet": "1560"
+  },
+  "I10170": {
+    "name": "N-Dulge CA (103193)",
+    "pack": "50",
+    "pallet": "1500"
+  },
+  "I10174": {
+    "name": "Cane Juice Molasses (102198)",
+    "pack": "59",
+    "pallet": "1416"
+  },
+  "I10175": {
+    "name": "Verdad Powder N6",
+    "pack": "30.86",
+    "pallet": "No Whole Pallet"
+  },
+  "I10176": {
+    "name": "PFI-5600 Natural Shelf-Life Extender",
+    "pack": "50",
+    "pallet": "No Whole Pallet"
+  },
+  "I10177": {
+    "name": "Glycerine 99.7%",
+    "pack": "551.16",
+    "pallet": "No Whole Pallet"
+  },
+  "I10179": {
+    "name": "Potassium Sorbate (101130)",
+    "pack": "50",
+    "pallet": "No Whole Pallet"
+  },
+  "I10180": {
+    "name": "Natural Butter Type Flavor Powder Brookside",
+    "pack": "40",
+    "pallet": "No Whole Pallet"
+  },
+  "I10181": {
+    "name": "GPC Pure Cote B-792 (101956)",
+    "pack": "50",
+    "pallet": "2500"
+  },
+  "I10182": {
+    "name": "Star-Dri 5 (100517)",
+    "pack": "50",
+    "pallet": "2500"
+  },
+  "I10183": {
+    "name": "118L1220 50167 Flavor, Butter & Vanilla Emulsn, Artificial, Pail (BIMBO)",
+    "pack": "40",
+    "pallet": "No Whole Pallet"
+  },
+  "I10184": {
+    "name": "Xanthum Gum",
+    "pack": "50",
+    "pallet": "1200"
+  },
+  "I10185": {
+    "name": "118F1212 50169 Flavor Butter Artificial (BIMBO)",
+    "pack": "40",
+    "pallet": "No Whole Pallet"
+  },
+  "I10186": {
+    "name": "118F1253 50164 Flavor Orange Emulsion",
+    "pack": "40",
+    "pallet": "No Whole Pallet"
+  },
+  "I10187": {
+    "name": "Sta-Lite 987 (101027)",
+    "pack": "50",
+    "pallet": "1800"
+  },
+  "I10188": {
+    "name": "Titatium Dioxide",
+    "pack": "50",
+    "pallet": "No Whole Pallet"
+  },
+  "I10189": {
+    "name": "Citric Acid (100014)",
+    "pack": "50",
+    "pallet": "No Whole Pallet"
+  },
+  "I10190": {
+    "name": "Baking Powder (101761)",
+    "pack": "50",
+    "pallet": "2000"
+  },
+  "I10191": {
+    "name": "Phosphoric Acid Solution",
+    "pack": "No inv",
+    "pallet": "N/A"
+  },
+  "I10193": {
+    "name": "Clear Jel Starch (102005)",
+    "pack": "50",
+    "pallet": "2250"
+  },
+  "I10194": {
+    "name": "Yeast Foods",
+    "pack": "No inv",
+    "pallet": "N/A"
+  },
+  "I10201": {
+    "name": "Tapioca Dextrin (102132)",
+    "pack": "50",
+    "pallet": "2500"
+  },
+  "I10232": {
+    "name": "Sapore Fidelio",
+    "pack": "22",
+    "pallet": "No Whole Pallet"
+  },
+  "I10233": {
+    "name": "Hydrated plum, soy shortening",
+    "pack": "No inv",
+    "pallet": "N/A"
+  },
+  "I10234": {
+    "name": "Shortening",
+    "pack": "No inv",
+    "pallet": "N/A"
+  },
+  "I10240": {
+    "name": "Granulated Sugar - 2,000 lb totes",
+    "pack": "2000",
+    "pallet": "2000"
+  },
+  "I10241": {
+    "name": "HFCS",
+    "pack": "Silo",
+    "pallet": "N/A"
+  },
+  "I10242": {
+    "name": "42DE Corn Syrup(106809)",
+    "pack": "3000",
+    "pallet": "3000"
+  },
+  "I10243": {
+    "name": "Soybean Oil",
+    "pack": "35",
+    "pallet": "No Whole Pallet"
+  },
+  "I10244": {
+    "name": "Cerelose Dextrose (100493)",
+    "pack": "50",
+    "pallet": "2250"
+  },
+  "I10245": {
+    "name": "Sugar 10x w/3%Starch (103394)",
+    "pack": "50",
+    "pallet": "2500"
+  },
+  "I10246": {
+    "name": "Brown Sugar",
+    "pack": "No inv",
+    "pallet": "N/A"
+  },
+  "I10284": {
+    "name": "Raspberry Filling HFCS-Free",
+    "pack": "600",
+    "pallet": "2400"
+  },
+  "I10295": {
+    "name": "5029662  MB-SANSTRANS 39 CUBE 40UN 50LB",
+    "pack": "50",
+    "pallet": "2000"
+  },
+  "I10306": {
+    "name": "Alpha Fresh",
+    "pack": "50",
+    "pallet": "2000"
+  },
+  "I10307": {
+    "name": "50387 Seeds, Coconut, Medium, Desiccated, Bag/Box",
+    "pack": "25",
+    "pallet": "1250"
+  },
+  "I10308": {
+    "name": "Preservative, Vanagel Drum 53285",
+    "pack": "470",
+    "pallet": "1880"
+  },
+  "I10310": {
+    "name": "Butter Complete / Natural Butter Type Flavor",
+    "pack": "50",
+    "pallet": "1350"
+  },
+  "I10313": {
+    "name": "TRU CLF EF",
+    "pack": "50",
+    "pallet": "2000"
+  },
+  "I10314": {
+    "name": "Frozen Egg Whites",
+    "pack": "30",
+    "pallet": "1800"
+  },
+  "I10315": {
+    "name": "TRU CLF",
+    "pack": "50",
+    "pallet": "2000"
+  },
+  "I10316": {
+    "name": "211 TRU CL",
+    "pack": "No inv",
+    "pallet": "N/A"
+  },
+  "I10317": {
+    "name": "Chisweet 50 Cane (101857)",
+    "pack": "55",
+    "pallet": "1320"
+  },
+  "I10318": {
+    "name": "Michigan Cherry filling (4017301)",
+    "pack": "20",
+    "pallet": "1600"
+  },
+  "I10319": {
+    "name": "Lemon - Deli Citron Filling (4107189)",
+    "pack": "20",
+    "pallet": "1600"
+  },
+  "I10320": {
+    "name": "Natural Blueberry Tart Filling w Preservatives",
+    "pack": "550",
+    "pallet": "2200"
+  },
+  "I10321": {
+    "name": "Topfil Plus CL Mixed Berry Compote",
+    "pack": "No inv",
+    "pallet": "N/A"
+  },
+  "I10322": {
+    "name": "Diced Apple Turnover Filling",
+    "pack": "500",
+    "pallet": "2000"
+  },
+  "I10324": {
+    "name": "Vivafil Raspberry Filling (4010155)",
+    "pack": "40",
+    "pallet": "1920"
+  },
+  "I10325": {
+    "name": "Vivafil Strawberry Filling (4017051)",
+    "pack": "40",
+    "pallet": "1920"
+  },
+  "I10326": {
+    "name": "Tomato Seasoning TOMP506 37S00014",
+    "pack": "25",
+    "pallet": "No Whole Pallet"
+  },
+  "I10327": {
+    "name": "Basil Seasoning BS9205 RMS30",
+    "pack": "50",
+    "pallet": "No Whole Pallet"
+  },
+  "I10328": {
+    "name": "Garlic & Parmesan Seasoning 68394A2 RMS28",
+    "pack": "50",
+    "pallet": "No Whole Pallet"
+  },
+  "I10329": {
+    "name": "Jalepeno Seasoning JP9274 37S00012",
+    "pack": "50",
+    "pallet": "No Whole Pallet"
+  },
+  "I10330": {
+    "name": "Cheddar Cheese Seasoning 65774A1 RMS29",
+    "pack": "50",
+    "pallet": "No Whole Pallet"
+  },
+  "I10331": {
+    "name": "Cheesecake Seasoning (Elite Spice)",
+    "pack": "50",
+    "pallet": "No Whole Pallet"
+  },
+  "I10332": {
+    "name": "TiO2 Free Pumpkin Cream Cheese Filling #082924",
+    "pack": "No inv",
+    "pallet": "N/A"
+  },
+  "I10335": {
+    "name": "Puratop Cream Cheese Icing 4107586",
+    "pack": "26",
+    "pallet": "1248"
+  },
+  "I10336": {
+    "name": "Puratos Cremfil Ultim Dark Chocolate",
+    "pack": "No inv",
+    "pallet": "N/A"
+  },
+  "I10337": {
+    "name": "Trem 21PF",
+    "pack": "50",
+    "pallet": "Only one bag"
+  },
+  "I10338": {
+    "name": "Puratop Belgian choco Fudge Base Plant-base",
+    "pack": "30",
+    "pallet": "No Whole Pallet"
+  },
+  "I10339": {
+    "name": "Bavarian Creme",
+    "pack": "No inv",
+    "pallet": "N/A"
+  },
+  "I10350": {
+    "name": "WF Spice 4261",
+    "pack": "50",
+    "pallet": "2000"
+  },
+  "I10351": {
+    "name": "#N/A",
+    "pack": "No inv",
+    "pallet": "N/A"
+  },
+  "I10360": {
+    "name": "Purac Powder 60",
+    "pack": "44",
+    "pallet": "No Whole Pallet"
+  },
+  "I10361": {
+    "name": "Tandem 530",
+    "pack": "50",
+    "pallet": "No Whole Pallet"
+  },
+  "I10364": {
+    "name": "POWERFresh ACE 2000 - NAFTA",
+    "pack": "No inv",
+    "pallet": "N/A"
+  },
+  "I10365": {
+    "name": "GRINDSTED® NG 100K",
+    "pack": "No inv",
+    "pallet": "N/A"
+  },
+  "I10905": {
+    "name": "Guar Gum (101689)",
+    "pack": "50",
+    "pallet": "No Whole Pallet"
+  },
+  "I11002": {
+    "name": "Cinnamon Oil",
+    "pack": "40",
+    "pallet": "only one jar"
+  },
+  "I11005": {
+    "name": "AlphaSoft A11",
+    "pack": "50",
+    "pallet": "2000"
+  },
+  "I11006": {
+    "name": "Sea Salt, Coarse",
+    "pack": "No inv",
+    "pallet": "N/A"
+  },
+  "I11021": {
+    "name": "Accolade 105784 Puff Pastry Margarine MB",
+    "pack": "50",
+    "pallet": "1800"
+  },
+  "I11022": {
+    "name": "Accolade 105785 Puff Pastry Margarine MB",
+    "pack": "50",
+    "pallet": "1800"
+  },
+  "I11024": {
+    "name": "Cream Cheese",
+    "pack": "30",
+    "pallet": "No Whole Pallet"
+  },
+  "I11025": {
+    "name": "335 MDR Soft",
+    "pack": "50",
+    "pallet": "2000"
+  },
+  "I11026": {
+    "name": "Suncol-205",
+    "pack": "No inv",
+    "pallet": "N/A"
+  },
+  "I11028": {
+    "name": "All purpose shortening AAK",
+    "pack": "No inv",
+    "pallet": "N/A"
+  },
+  "I11029": {
+    "name": "Gourmet Select Seedless Raspberry – FFI # 50827",
+    "pack": "40",
+    "pallet": "10 cs / layer"
+  },
+  "I11030": {
+    "name": "Perfectly Natural Cubed Apple – FFI # 2104",
+    "pack": "40",
+    "pallet": "10 cs / layer"
+  },
+  "I11031": {
+    "name": "#N/A",
+    "pack": "No inv",
+    "pallet": "N/A"
+  },
+  "I11032": {
+    "name": "#N/A",
+    "pack": "No inv",
+    "pallet": "N/A"
+  }
+}
